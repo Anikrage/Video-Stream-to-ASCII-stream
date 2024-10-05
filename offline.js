@@ -1,14 +1,17 @@
-//const density = "Ñ@#W$9876543210?!abc;:+=-,._";
-const density = '       .:-i|=+%O#@'
-//const density = '        .:░▒▓█';
+const density = "Ñ@#W$9876543210?!abc;:+=-,._";
+// const density = '       .:-i|=+%O#@';
+// const density = '        .:░▒▓█';
 
 let video;
 let asciiDiv;
+let captureFrames = true;  // Set to true to start saving frames
 
 function setup() {
   noCanvas();
-  video = createCapture(VIDEO);
-  video.size(150, 50);
+  video = createVideo(['./video.mp4']);  // Load local video file
+  video.size(80, 50);
+  video.loop();  // Loop the video
+  video.hide();  // Hide the actual video element
   asciiDiv = createDiv();
 }
 
@@ -31,4 +34,12 @@ function draw() {
     asciiImage += '<br/>';
   }
   asciiDiv.html(asciiImage);
+
+  // Save frames as images
+  if (captureFrames) {
+    saveFrames('./output/ascii_video_frame', 'png', 1, 30, function(data) {
+      // Callback after frames are saved, if needed
+      console.log('Frames saved:', data);
+    });
+  }
 }

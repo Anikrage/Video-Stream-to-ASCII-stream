@@ -1,0 +1,12 @@
+{
+  "name": "video-stream-to-ascii-stream",
+  "version": "1.0.0",
+  "description": "bruh?>",
+  "main": "offline.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
